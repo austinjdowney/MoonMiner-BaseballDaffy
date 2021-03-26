@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="game.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkpint2</title>
+</head>
+
+<body>
+
+    <!------------------------------ Title--------------------- -->
+    <header>
+        <div class="container-fluid text-light shadow">
+            <h1>
+                <marquee>YANKEES vs. REDSUX</marquee>
+            </h1>
+        </div>
+    </header>
+
+    <!---------------------------------GAME PLAY Screen------------------------------------->
+
+    <main>
+        <div class="container-fluid">
+            <div class="row"></div>
+            <div class="row">
+
+                <!----------------------------------BATTERS BOX------------------------------------------>
+                <div class="col">
+                    <button onclick="hit('Yankees')"><img src="./Donald duck.png"></button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-------------------SCOREBOARD AND UPGRADE screen-->
+
+    <footer>
+        <div class="container-fluid bg-secondary">
+            <div class="row">
+
+                <!----------------------SCOREBOARD------------------------------------------>
+                <!-------put id's on scoreboard for yankee runs and hits------>
+                <div class="card border">
+                    <div class="card-header">
+                        <h3>Scoreboard</h3>
+                    </div>
+                    <div class="col-6 list-group border"></div>
+                    <div>
+                        <li class="list-group-item">Cras justo odio</li>
+                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                    </div>
+                    <div class="col-6 border">
+                        <li class="list-group-item">Cras justo odio</li>
+                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-----------------------UPGRADES------------>
+            <!-----------put id's on upgrades------------>
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>UPGRADES</h3>
+                        <div class="row">
+                            <div class="col-3">
+                                <button onclick="buyBaseballBat()">BATUPGRADE<p>50 HITS</p></button>
+                            </div>
+                            <div class="col-3">
+                                <button onclick="buyWeights()">WEIGHTS <p>100 HITS</p></button>
+                            </div>
+                            <div class="col-3">
+                                <button onclick="buySteroids()">STEROIDS<p>500 HITS</p></button>
+                            </div>
+                            <div class="col-3">
+                                <button onclick="buyBaseRunners()">BASERUNNERS<p>300 HITS</p></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+        </div>
+
+    </footer>
+
+
+    <script src="game.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
