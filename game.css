@@ -1,3 +1,7 @@
+header{
+    font-family: 'Press Start 2P', cursive;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -5,6 +9,7 @@ body {
     background-position: center;
     min-height: 100vh;
     background-image: url(./Baseball\ diamond.jpg);
+    position:relative;
 }
 
 main{
@@ -17,4 +22,18 @@ footer{
 
 .card{
     display: flex;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.upgrade-card{
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.hitter-image{
+    position:absolute;
+    right: 19rem;
+    top: 10rem;
+    
 }

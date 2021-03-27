@@ -86,5 +86,5 @@ function startInterval() {
 }
 
 function drawHits() {
-    document.getElementById('yankeeHits').innerText = `${totalHits}`
+    document.getElementById('totalHits').innerText = `${totalHits}`
 }
