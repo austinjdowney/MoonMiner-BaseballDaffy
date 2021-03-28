@@ -22,6 +22,7 @@
         <div class="container-fluid text-light shadow p-5">
             <h1>
                 <marquee>YANKEES vs. REDSUX</marquee>
+                <audio src="./Play Me Like That Video Game.mp3" id="music"></audio>
             </h1>
         </div>
     </header>
@@ -84,20 +85,24 @@
                             <h3><b>UPGRADES</b></h3>
                             <div class="row px-3 upgrade-card w-100">
                                 <div class="col">
-                                    <button class="bg-warning shadow" onclick="buyBaseballBat()"><b>BATUPGRADE<p>50 HITS
+                                    <button class="bg-warning shadow"
+                                        onclick="buyBaseballBat('batUpgrade')"><b>BATUPGRADE<p>50 HITS
                                             </p></b>
                                     </button>
                                 </div>
                                 <div class="col">
-                                    <button class="bg-warning shadow" onclick="buyWeights()"><b>WEIGHTS <p>100 HITS</p>
+                                    <button class="bg-warning shadow" onclick="buyWeights('weights')"><b>WEIGHTS <p>100
+                                                HITS</p>
                                     </button></b>
                                 </div>
                                 <div class="col">
-                                    <button class="bg-warning shadow" onclick="buySteroids()"><b>STEROIDS<p>500 HITS</p>
+                                    <button class="bg-warning shadow" onclick="buySteroids('steroids')"><b>STEROIDS<p>
+                                                500 HITS</p>
                                     </button></b>
                                 </div>
                                 <div class="col">
-                                    <button class="bg-warning shadow" onclick="buyBaseRunners()"><b>BASERUNNERS<p>300
+                                    <button class="bg-warning shadow"
+                                        onclick="buyBaseRunners('baseRunners')"><b>BASERUNNERS<p>300
                                                 HITS
                                             </p></button></b>
                                 </div>

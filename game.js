@@ -5,22 +5,26 @@ let autoModifier = 0
 let toalMultipliers = {
     onClickUpgrades: {
         batUpgrade: {
+            name: 'batUpgrade',
             price: 50,
             quantity: 0,
             multiplier: 2,
         },
         weights: {
+            name: 'weights',
             price: 100,
             quantiy: 0,
             multiplier: 3,
         },
         steroids: {
+            name: 'steroids',
             price: 500,
             quantity: 0,
             multiplier: 4,
-        }
+        },
     }, automaticUpgrades: {
         baseRunners: {
+            name: 'baseRunners',
             price: 300,
             quantity: 0,
             multipler: 2,
@@ -31,28 +35,30 @@ let toalMultipliers = {
 let scoreboard = {
     Yankees: {
         name: 'Yankees',
-        hits: 0,
-        runs: 0,
-    },
-    redSox: {
-        name: 'Red Sux',
-        hits: 0,
+        hits: 1,
         runs: 0,
     }
 }
 
 
 function hit(yankee) {
-    scoreboard[yankee].hits++
+    scoreboard[yankee].hits + 1
     let yHits = scoreboard[yankee].hits
+    if (totalHits > 0) {
+        yHits += totalHits
+    }
+    drawHits()
+
     console.log(yHits)
 }
 
 function buyBaseballBat() {
+    let clickModifiers = scoreboard[yankee].hits
     if (totalHits > 50) {
         totalHits -= 50
-        clickModifier + 2
+            * 2
     }
+    drawClickUpgrades()
 }
 
 function buyWeights() {
@@ -86,5 +92,25 @@ function startInterval() {
 }
 
 function drawHits() {
+    totalHits++
     document.getElementById('totalHits').innerText = `${totalHits}`
+}
+
+function drawClickUpgrades() {
+    totalHits -= batUpgrade.clickModifier
+
+    document.getElementById('batUpgrade').innerText = `${batUpgrade}`
+    document.getElementById('weights').innerText = `${weights}`
+    document.getElementById('steroids').innerText = `${steroids}`
+}
+
+function drawAutomaticUpgrades() {
+    document.getElementById('baseRunners').innerText = `${baseRunners}`
+}
+
+function music() {
+    document.getElementById("music").play()
+    SetTimeout(() => {
+        document.getElementById('music').pause(), 5000
+    })
 }
