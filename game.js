@@ -61,9 +61,10 @@ function hit(yankees) {
 function buyBatUpgrade() {
     //let totalHits = scoreboard.hits
     //totalHits += batUpgrade
-    if (hits >= 50) {
+    if (totalHits >= 50) {
         onClickUpgrades.batUpgrade.quantity++
-        hits -= 50
+        totalHits -= 50
+        hits *= onClickUpgrades.batUpgrade.multiplier
         updateBatUpgrade()
         updateCModifier()
         cModifier()
@@ -78,10 +79,10 @@ function updateBatUpgrade() {
 }
 
 function buyWeights() {
-    if (hits >= 100) {
+    if (totalHits >= 100) {
         onClickUpgrades.weights.quantity++
-        hits -= 100
-        hits = onClickUpgrades.weights.multiplier
+        totalHits -= 100
+        hits *= onClickUpgrades.weights.multiplier
         updateWeightUpgrade()
         updateCModifier()
         cModifier()
@@ -90,17 +91,18 @@ function buyWeights() {
 }
 
 function updateWeightUpgrade() {
-    // let weightsElem = document.getElementById('weights')
-    // weightsElem.innerText = `${onClickUpgrades.weights.quantity}`
+    let weightsElem = document.getElementById('weights')
+    weightsElem.innerText = `${onClickUpgrades.weights.quantity}`
     let weightTotalElem = document.getElementById('weightTotal')
     weightTotalElem.innerText = `${onClickUpgrades.weights.quantity}`
     update()
 }
 
 function buySteroids() {
-    if (hits >= 500) {
-        hits -= 500
+    if (totalHits >= 500) {
+        totalHits -= 500
         onClickUpgrades.steroids.quantity++
+        hits *= onClickUpgrades.steroids.multiplier
         updateSteroids()
         updateCModifier()
         cModifier()
@@ -111,14 +113,15 @@ function updateSteroids() {
     //let steroidsElem = document.getElementById('steroids')
     //steroidsElem.innerText = `${onClickUpgrades.steroids.quantity}`
     let steroidsTotalElem = document.getElementById('steroidTotal')
-    steroidsTotalElem.innerText = `${onClickUpgrades.steroids.quantityS}`
+    steroidsTotalElem.innerText = `${onClickUpgrades.steroids.quantity}`
     update()
 }
 
 function buyBaseRunners() {
-    if (hits >= 300) {
+    if (totalHits >= 300) {
         automaticUpgrades.baseRunners.quantity++
-        hits -= 300
+        totalHits -= 300
+        hits *= automaticUpgrades.baseRunners.multiplier
         updateBaseRunners()
         updateAModifier()
         aModifier()
@@ -129,7 +132,7 @@ function updateBaseRunners() {
     // let baseRunnersElem = document.getElementById('baseRunners')
     // baseRunnersElem.innerText = `${automaticUpgrades.baseRunners.quantity}`
     let baseRunnerTotalEelem = document.getElementById('baseRunnerTotal')
-    baseRunnerTotalEelem.innerText = `${automaticUpgrades.baseRunnerTotal.quantity}`
+    baseRunnerTotalEelem.innerText = `${automaticUpgrades.baseRunners.quantity}`
     update()
 }
 
@@ -164,12 +167,16 @@ function cModifier() {
 }
 
 function updateCModifier() {
-    clickModifier = ((onClickUpgrades.batUpgrades.quantity) + onClickUpgrades.weights.quantity * 3) + (onClickUpgrades.steroids.quantity * 4)
+    clickModifier = ((onClickUpgrades.batUpgrade.quantity) + onClickUpgrades.weights.quantity * 3) + (onClickUpgrades.steroids.quantity * 4)
 }
 
 function aModifier() {
     let aModifierElem = document.getElementById('autoModifier')
     aModifierElem.innerText = `${autoModifier}`
+}
+
+function updateAModifier() {
+    aModifier = automaticUpgrades.baseRunners.quantity * 2
 }
 
 
@@ -184,7 +191,7 @@ function music() {
 
 update()
 updateBatUpgrade()
-updateWeights()
+updateWeightUpgrade()
 updateSteroids()
 updateBaseRunners()
 updateCModifier()

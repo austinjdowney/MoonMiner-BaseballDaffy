@@ -67,6 +67,7 @@
                                 </div>
                             </div>
                             <div class="row">
+                                <!--id= totalHits or hits??-->
                                 <div class="col-6 border" id='hits'>
                                     <b>Score:</b>
                                 </div>
@@ -74,11 +75,11 @@
                                     <b>0</b>
                                 </div>
                             </div>
-                            <div class="row">
-                                <p id='batUpgradeTotal'>Total Bat Upgrade=</p>
-                                <p id='weightTotal'>Total Weight Upgrade=</p>
-                                <p id='steroidTotal'>Steroid Total Upgrade=</p>
-                                <p id='baseRunnerTotal'>Base Runner Total=</p>
+                            <div class="row border">
+                                <p id='batUpgradeTotal'>BU=</p>
+                                <p id='weightTotal'>W=</p>
+                                <p id='steroidTotal'>S=</p>
+                                <p id='baseRunnerTotal'>BR=</p>
                             </div>
                         </div>
                     </div>
@@ -92,15 +93,15 @@
                         <div class="card-header border bg-success text-center">
                             <h3><b>UPGRADES</b></h3>
                             <div class="row px-3 upgrade-card w-100">
-                                <div class="col">
-                                    <button class="bg-warning shadow" onclick="buyBatUpgrade()"><b>+1
+                                <div class="col" id="batUpgrade">
+                                    <button class="bg-warning shadow" onclick="buyBatUpgrade('batUpgrade')"><b>+1
                                             BATUPGRADE</b>
                                         <p>50 HITS
                                         </p>
                                     </button>
                                 </div>
                                 <div class="col" id='weights'>
-                                    <button class="bg-warning shadow" onclick="buyWeights()"><b>WEIGHTS +1
+                                    <button class="bg-warning shadow" onclick="buyWeights('weights')"><b>WEIGHTS +1
                                         </b>
                                         <p>100
                                             HITS</p>
