@@ -151,7 +151,7 @@ function update() {
 
 function cModifier() {
     let cModifierElem = document.getElementById('clickModifier')
-    cModifierElem.innSerText = `${clickModifier}`
+    cModifierElem.innerText = `${clickModifier}`
 }
 
 function updateCModifier() {
