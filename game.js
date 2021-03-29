@@ -10,6 +10,7 @@ let hits = 0
 let totalHits = 0
 let clickModifier = 0
 let autoModifier = 0
+let totalModifier = clickModifier + autoModifier
 let collectionInterval = 0
 
 
@@ -51,11 +52,12 @@ let yankees = {
 
 
 function hit(yankees) {
-    if (hits >= 0) {
-        hits++
+    if (totalHits >= 0) {
+        totalHits++
     }
+    totalHits += clickModifier
     drawHits()
-    console.log(hits)
+    console.log(totalHits)
 }
 
 function buyBatUpgrade() {
@@ -91,8 +93,8 @@ function buyWeights() {
 }
 
 function updateWeightUpgrade() {
-    let weightsElem = document.getElementById('weights')
-    weightsElem.innerText = `${onClickUpgrades.weights.quantity}`
+    //    let weightsElem = document.getElementById('weights')
+    //    weightsElem.innerText = `${onClickUpgrades.weights.multiplier}`
     let weightTotalElem = document.getElementById('weightTotal')
     weightTotalElem.innerText = `${onClickUpgrades.weights.quantity}`
     update()
@@ -106,6 +108,7 @@ function buySteroids() {
         updateSteroids()
         updateCModifier()
         cModifier()
+        drawHits()
     }
 }
 
@@ -125,8 +128,10 @@ function buyBaseRunners() {
         updateBaseRunners()
         updateAModifier()
         aModifier()
+        drawHits
     }
 }
+//startInterval()
 
 function updateBaseRunners() {
     // let baseRunnersElem = document.getElementById('baseRunners')
@@ -142,7 +147,7 @@ function collectAutoUpgrades() {
     for (const key in automaticUpgrades) {
         if (automaticUpgrades.hasOwnProperty.call(automaticUpgrades, key)) {
             const autoHits = automaticUpgrades[key];
-            hits += (autoHits.multiplier * autoHits.quantity)
+            totalHits += (autoHits.multiplier * autoHits.quantity)
         }
     }
     update()
@@ -153,12 +158,12 @@ function startInterval() {
 }
 
 function drawHits() {
-    document.getElementById('hits').innerText = `${hits}`
+    document.getElementById('totalHits').innerText = `${totalHits}`
 }
 
 function update() {
-    let hitsElem = document.getElementById('hits')
-    hitsElem.innerText = `${hits}`
+    let totalHitsElem = document.getElementById('totalHits')
+    totalHitsElem.innerText = `${totalHits}`
 }
 
 function cModifier() {
@@ -167,7 +172,7 @@ function cModifier() {
 }
 
 function updateCModifier() {
-    clickModifier = ((onClickUpgrades.batUpgrade.quantity) + onClickUpgrades.weights.quantity * 3) + (onClickUpgrades.steroids.quantity * 4)
+    clickModifier = ((onClickUpgrades.batUpgrade.quantity * 2) + onClickUpgrades.weights.quantity * 3) + (onClickUpgrades.steroids.quantity * 4)
 }
 
 function aModifier() {
@@ -176,8 +181,19 @@ function aModifier() {
 }
 
 function updateAModifier() {
-    aModifier = automaticUpgrades.baseRunners.quantity * 2
+    autoModifier = automaticUpgrades.baseRunners.quantity * 2
 }
+
+//function tModifier() {
+//    let tModifierElem = document.getElementById('totalModifier')
+//    tModifierElem.innerText = `${totalModifier}`
+//}
+
+//function updateTModifier() {
+//    clickModifier = ((onClickUpgrades.batUpgrade.quantity * 2) + onClickUpgrades.weights.quantity * 3) + (onClickUpgrades.steroids.quantity * 4)
+//    autoModifier = automaticUpgrades.baseRunners.quantity * 2
+//   totalModifier = clickModifier + autoModifier
+//}
 
 
 
@@ -194,6 +210,7 @@ updateBatUpgrade()
 updateWeightUpgrade()
 updateSteroids()
 updateBaseRunners()
+startInterval()
 updateCModifier()
 updateAModifier()
-startInterval()
+//updateTModifier()
