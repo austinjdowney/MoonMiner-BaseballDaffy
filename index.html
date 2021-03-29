@@ -74,6 +74,12 @@
                                     <b>0</b>
                                 </div>
                             </div>
+                            <div class="row">
+                                <p id='batUpgradeTotal'>Total Bat Upgrade=</p>
+                                <p id='weightTotal'>Total Weight Upgrade=</p>
+                                <p id='steroidTotal'>Steroid Total Upgrade=</p>
+                                <p id='baseRunnerTotal'>Base Runner Total=</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -87,24 +93,29 @@
                             <h3><b>UPGRADES</b></h3>
                             <div class="row px-3 upgrade-card w-100">
                                 <div class="col">
-                                    <button type="button" class="bg-warning shadow"
-                                        onclick="buyBatUpgrade('batUpgrade')"><b>BATUPGRADE<p>50 HITS
-                                            </p></b></button>
+                                    <button class="bg-warning shadow" onclick="buyBatUpgrade()"><b>+1
+                                            BATUPGRADE</b>
+                                        <p>50 HITS
+                                        </p>
+                                    </button>
+                                </div>
+                                <div class="col" id='weights'>
+                                    <button class="bg-warning shadow" onclick="buyWeights()"><b>WEIGHTS +1
+                                        </b>
+                                        <p>100
+                                            HITS</p>
+                                    </button>
+
                                 </div>
                                 <div class="col">
-                                    <button class="bg-warning shadow" onclick="buyWeights('weights')"><b>WEIGHTS
-                                            <p>100
-                                                HITS</p>
+                                    <button class="bg-warning shadow" id='steroids'
+                                        onclick="buySteroids('steroids')"><b>STEROIDS
+                                            <p>500 HITS</p>
                                     </button></b>
+
                                 </div>
                                 <div class="col">
-                                    <button class="bg-warning shadow" onclick="buySteroids('steroids')"><b>STEROIDS
-                                            <p>
-                                                500 HITS</p>
-                                    </button></b>
-                                </div>
-                                <div class="col">
-                                    <button class="bg-warning shadow"
+                                    <button class="bg-warning shadow" id='baseRunners'
                                         onclick="buyBaseRunners('baseRunners')"><b>BASERUNNERS<p>300
                                                 HITS
                                             </p></button></b>

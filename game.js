@@ -67,12 +67,13 @@ function buyBatUpgrade() {
         updateBatUpgrade()
         updateCModifier()
         cModifier()
+        drawHits()
     }
 }
 
 function updateBatUpgrade() {
-    let batUpgradeElem = document.getElementById('batUpgrade')
-    batUpgradeElem.innerText = `${onClickUpgrades.batUpgrade.quantity}`
+    let batUpgradeTotalElem = document.getElementById('batUpgradeTotal')
+    batUpgradeTotalElem.innerText = `${onClickUpgrades.batUpgrade.quantity}`
     update()
 }
 
@@ -80,15 +81,19 @@ function buyWeights() {
     if (hits >= 100) {
         onClickUpgrades.weights.quantity++
         hits -= 100
+        hits = onClickUpgrades.weights.multiplier
         updateWeightUpgrade()
         updateCModifier()
         cModifier()
+        drawHits()
     }
 }
 
 function updateWeightUpgrade() {
-    let weightsElem = document.getElementById('weights')
-    weightsElem.innerText = `${onClickUpgrades.weights.quantity}`
+    // let weightsElem = document.getElementById('weights')
+    // weightsElem.innerText = `${onClickUpgrades.weights.quantity}`
+    let weightTotalElem = document.getElementById('weightTotal')
+    weightTotalElem.innerText = `${onClickUpgrades.weights.quantity}`
     update()
 }
 
@@ -103,8 +108,10 @@ function buySteroids() {
 }
 
 function updateSteroids() {
-    let steroidsElem = document.getElementById('steroids')
-    steroidsElem.innerText = `${onClickUpgrades.steroids.quantity}`
+    //let steroidsElem = document.getElementById('steroids')
+    //steroidsElem.innerText = `${onClickUpgrades.steroids.quantity}`
+    let steroidsTotalElem = document.getElementById('steroidTotal')
+    steroidsTotalElem.innerText = `${onClickUpgrades.steroids.quantityS}`
     update()
 }
 
@@ -119,8 +126,10 @@ function buyBaseRunners() {
 }
 
 function updateBaseRunners() {
-    let baseRunnersElem = document.getElementById('baseRunners')
-    baseRunnersElem.innerText = `${automaticUpgrades.baseRunners.quantity}`
+    // let baseRunnersElem = document.getElementById('baseRunners')
+    // baseRunnersElem.innerText = `${automaticUpgrades.baseRunners.quantity}`
+    let baseRunnerTotalEelem = document.getElementById('baseRunnerTotal')
+    baseRunnerTotalEelem.innerText = `${automaticUpgrades.baseRunnerTotal.quantity}`
     update()
 }
 
