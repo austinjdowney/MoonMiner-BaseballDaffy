@@ -8,8 +8,8 @@
 
 let hits = 0
 let totalHits = 0
-let clickModifier = 0
-let autoModifier = 0
+let cModifier = 0
+let aModifier = 0
 let collectionInterval = 0
 
 
@@ -23,7 +23,7 @@ let onClickUpgrades = {
     weights: {
         name: 'weights',
         price: 100,
-        quantiy: 0,
+        quantity: 0,
         multiplier: 3,
     },
     steroids: {
@@ -39,7 +39,7 @@ let automaticUpgrades = {
         name: 'baseRunners',
         price: 300,
         quantity: 0,
-        multipler: 2,
+        multiplier: 2,
     }
 }
 
