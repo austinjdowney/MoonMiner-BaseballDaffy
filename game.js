@@ -1,90 +1,139 @@
+//Questions
+//keep receiving error of innerText of NUll in console for all my variables...
+//they will subtract the next hit click but not on the actual upgrade button click..
+//How to start the autoUpgrade to keep adding 'baseRunners' once paid for..
+
+
+
+
+let hits = 0
 let totalHits = 0
 let clickModifier = 0
 let autoModifier = 0
+let collectionInterval = 0
 
-let toalMultipliers = {
-    onClickUpgrades: {
-        batUpgrade: {
-            name: 'batUpgrade',
-            price: 50,
-            quantity: 0,
-            multiplier: 2,
-        },
-        weights: {
-            name: 'weights',
-            price: 100,
-            quantiy: 0,
-            multiplier: 3,
-        },
-        steroids: {
-            name: 'steroids',
-            price: 500,
-            quantity: 0,
-            multiplier: 4,
-        },
-    }, automaticUpgrades: {
-        baseRunners: {
-            name: 'baseRunners',
-            price: 300,
-            quantity: 0,
-            multipler: 2,
-        }
+
+let onClickUpgrades = {
+    batUpgrade: {
+        name: 'batUpgrade',
+        price: 50,
+        quantity: 0,
+        multiplier: 2,
+    },
+    weights: {
+        name: 'weights',
+        price: 100,
+        quantiy: 0,
+        multiplier: 3,
+    },
+    steroids: {
+        name: 'steroids',
+        price: 500,
+        quantity: 0,
+        multiplier: 4,
     }
 }
 
-let scoreboard = {
-    Yankees: {
-        name: 'Yankees',
-        hits: 1,
-        runs: 0,
+let automaticUpgrades = {
+    baseRunners: {
+        name: 'baseRunners',
+        price: 300,
+        quantity: 0,
+        multipler: 2,
     }
 }
 
+let yankees = {
+    name: 'Yankees',
+    hits: 1,
+    runs: 0,
+}
 
-function hit(yankee) {
-    scoreboard[yankee].hits + 1
-    let yHits = scoreboard[yankee].hits
-    if (totalHits > 0) {
-        yHits += totalHits
+
+function hit(yankees) {
+    if (hits >= 0) {
+        hits++
     }
     drawHits()
-
-    console.log(yHits)
+    console.log(hits)
 }
 
-function buyBaseballBat() {
-    let clickModifiers = scoreboard[yankee].hits
-    if (totalHits > 50) {
-        totalHits -= 50
-            * 2
+function buyBatUpgrade() {
+    //let totalHits = scoreboard.hits
+    //totalHits += batUpgrade
+    if (hits >= 50) {
+        onClickUpgrades.batUpgrade.quantity++
+        hits -= 50
+        updateBatUpgrade()
+        updateCModifier()
+        cModifier()
     }
-    drawClickUpgrades()
+}
+
+function updateBatUpgrade() {
+    let batUpgradeElem = document.getElementById('batUpgrade')
+    batUpgradeElem.innerText = `${onClickUpgrades.batUpgrade.quantity}`
+    update()
 }
 
 function buyWeights() {
-    if (totalHits > 100) {
-        totalHits -= 100
-        clickModifier + 3
+    if (hits >= 100) {
+        onClickUpgrades.weights.quantity++
+        hits -= 100
+        updateWeightUpgrade()
+        updateCModifier()
+        cModifier()
     }
+}
+
+function updateWeightUpgrade() {
+    let weightsElem = document.getElementById('weights')
+    weightsElem.innerText = `${onClickUpgrades.weights.quantity}`
+    update()
 }
 
 function buySteroids() {
-    if (totalHits > 500) {
-        totalHits -= 500
-        clickModifier + 4
+    if (hits >= 500) {
+        hits -= 500
+        onClickUpgrades.steroids.quantity++
+        updateSteroids()
+        updateCModifier()
+        cModifier()
     }
+}
+
+function updateSteroids() {
+    let steroidsElem = document.getElementById('steroids')
+    steroidsElem.innerText = `${onClickUpgrades.steroids.quantity}`
+    update()
 }
 
 function buyBaseRunners() {
-    if (totalHits > 300) {
-        totalHits -= 300
-        autoModifier + 2
+    if (hits >= 300) {
+        automaticUpgrades.baseRunners.quantity++
+        hits -= 300
+        updateBaseRunners()
+        updateAModifier()
+        aModifier()
     }
 }
 
+function updateBaseRunners() {
+    let baseRunnersElem = document.getElementById('baseRunners')
+    baseRunnersElem.innerText = `${automaticUpgrades.baseRunners.quantity}`
+    update()
+}
+
 function collectAutoUpgrades() {
-    automaticModifier += automaticUpgrade.modifier
-    TotalHits += automaticModifier
+    // automaticModifier += automaticUpgrade.modifierupdate
+    // TotalHits += automaticModifier
+    for (const key in automaticUpgrades) {
+        if (automaticUpgrades.hasOwnProperty.call(automaticUpgrades, key)) {
+            const autoHits = automaticUpgrades[key];
+            hits += (autoHits.multiplier * autoHits.quantity)
+        }
+    }
+    update()
 }
 
 function startInterval() {
@@ -92,21 +141,29 @@ function startInterval() {
 }
 
 function drawHits() {
-    totalHits++
-    document.getElementById('totalHits').innerText = `${totalHits}`
+    document.getElementById('hits').innerText = `${hits}`
 }
 
-function drawClickUpgrades() {
-    totalHits -= batUpgrade.clickModifier
-
-    document.getElementById('batUpgrade').innerText = `${batUpgrade}`
-    document.getElementById('weights').innerText = `${weights}`
-    document.getElementById('steroids').innerText = `${steroids}`
+function update() {
+    let hitsElem = document.getElementById('hits')
+    hitsElem.innerText = `${hits}`
 }
 
-function drawAutomaticUpgrades() {
-    document.getElementById('baseRunners').innerText = `${baseRunners}`
+function cModifier() {
+    let cModifierElem = document.getElementById('clickModifier')
+    cModifierElem.innSerText = `${clickModifier}`
 }
+
+function updateCModifier() {
+    clickModifier = ((onClickUpgrades.batUpgrades.quantity) + onClickUpgrades.weights.quantity * 3) + (onClickUpgrades.steroids.quantity * 4)
+}
+
+function aModifier() {
+    let aModifierElem = document.getElementById('autoModifier')
+    aModifierElem.innerText = `${autoModifier}`
+}
+
+
 
 function music() {
     document.getElementById("music").play()
@@ -114,3 +171,12 @@ function music() {
         document.getElementById('music').pause(), 5000
     })
 }
+
+update()
+updateBatUpgrade()
+updateWeights()
+updateSteroids()
+updateBaseRunners()
+updateCModifier()
+updateAModifier()
+startInterval()

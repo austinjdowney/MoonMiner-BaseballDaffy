@@ -21,8 +21,8 @@
     <header>
         <div class="container-fluid text-light shadow p-5">
             <h1>
-                <marquee>YANKEES vs. REDSUX</marquee>
-                <audio src="./Play Me Like That Video Game.mp3" id="music"></audio>
+                <marquee>YANKEES vs. REDSOX</marquee>
+                <audio src="" id="music" autoplay></audio>
             </h1>
         </div>
     </header>
@@ -54,18 +54,20 @@
                     <div class="card border m-3">
                         <div class="card-header text-center bg-success shadow">
                             <h3>Scoreboard</h3>
+                            <h3 id="clickModifier"></h3>
+                            <h3 id="autoModifier"></h3>
                         </div>
                         <div class="card-body bg-warning border shadow">
                             <div class="row">
                                 <div class="col-6 border">
-                                    <b>YANKEES</b>
+                                    <b>NYY</b>
                                 </div>
                                 <div class="col-6 border">
-                                    <b>RED SUX</b>
+                                    <b>BOS</b>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-6 border" id='totalHits'>
+                                <div class="col-6 border" id='hits'>
                                     <b>Score:</b>
                                 </div>
                                 <div class="col-6 border">
@@ -85,18 +87,19 @@
                             <h3><b>UPGRADES</b></h3>
                             <div class="row px-3 upgrade-card w-100">
                                 <div class="col">
-                                    <button class="bg-warning shadow"
-                                        onclick="buyBaseballBat('batUpgrade')"><b>BATUPGRADE<p>50 HITS
-                                            </p></b>
-                                    </button>
+                                    <button type="button" class="bg-warning shadow"
+                                        onclick="buyBatUpgrade('batUpgrade')"><b>BATUPGRADE<p>50 HITS
+                                            </p></b></button>
                                 </div>
                                 <div class="col">
-                                    <button class="bg-warning shadow" onclick="buyWeights('weights')"><b>WEIGHTS <p>100
+                                    <button class="bg-warning shadow" onclick="buyWeights('weights')"><b>WEIGHTS
+                                            <p>100
                                                 HITS</p>
                                     </button></b>
                                 </div>
                                 <div class="col">
-                                    <button class="bg-warning shadow" onclick="buySteroids('steroids')"><b>STEROIDS<p>
+                                    <button class="bg-warning shadow" onclick="buySteroids('steroids')"><b>STEROIDS
+                                            <p>
                                                 500 HITS</p>
                                     </button></b>
                                 </div>
