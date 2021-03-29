@@ -8,8 +8,8 @@
 
 let hits = 0
 let totalHits = 0
-let cModifier = 0
-let aModifier = 0
+let clickModifier = 0
+let autoModifier = 0
 let collectionInterval = 0
 
 
