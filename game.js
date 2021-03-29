@@ -172,6 +172,7 @@ function music() {
     })
 }
 
+drawHits()
 update()
 updateBatUpgrade()
 updateWeights()
